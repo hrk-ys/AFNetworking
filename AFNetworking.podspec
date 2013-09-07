@@ -18,6 +18,10 @@ Pod::Spec.new do |s|
   s.prefix_header_contents = <<-EOS
 #import <Availability.h>
 
+#ifdef DEBUG
+#define _AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES_
+#endif
+
 #if __IPHONE_OS_VERSION_MIN_REQUIRED
   #import <SystemConfiguration/SystemConfiguration.h>
   #import <MobileCoreServices/MobileCoreServices.h>
@@ -27,5 +31,7 @@ Pod::Spec.new do |s|
   #import <CoreServices/CoreServices.h>
   #import <Security/Security.h>
 #endif
+
+
 EOS
 end
